@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<?php
+$page_source=array(
+    'title'         =>'任务详情',
+    'css'           =>array(),
+    'js'            =>array('format','ossopt_task'),
+    'plugin'        =>array('layout','dialog','form'),
+    'path'          =>__FILE__,
+);
+$this->load->view('/public/linker',$page_source);
+?>
+<body dialog-options="width:780,height:420,closeBtn:true">
+    <form id="fmedit">
+    <input type="hidden" name="actionxm" value="<?php echo $actionxm?>" />
+    <table class="table table-noborder">
+        <colgroup>
+            <col width="80px" /><col width="280px" />
+            <col width="80px" /><col width="*" />
+        </colgroup>
+        <tr>
+            <td><label class="form-label"><t>操作对象:</t></label></td>
+            <td colspan="2"><span class="form-label-value" id="objectid"></span></td>
+            <td>
+                <button id="stop_manager_job_bt" type="button" style="display:none;" class="btn btn-primary btn-xs btn-step-event" onclick="javascript:stop_manager_job('');"><t>中止Manager任务</t></button>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="form-label"><t>任务进度:</t></label></td>
+            <td colspan="3" style="vertical-align:middle;">
+                <div class="progress" style="margin-bottom:0;">
+                    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" style="width:0%" id="process">
+                        <span class="sr-only">0</span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td><label class="form-label"><t>调用接口:</t></label></td>
+            <td><span class="form-label-value" id="interface_name"><?php echo $interface_name?></span></td>
+            <td><label class="form-label"><t>任务状态:</t></label></td>
+            <td><span class="form-label-value" id="status"></span></td>
+        </tr>
+        <tr>
+        	<!-- 
+            <td><label class="form-label"><t>请求参数:</t></label></td>
+            <td>
+                <textarea class="form-control input-sm" id="para" rows="7"></textarea>
+            </td>
+             -->
+            <td><label class="form-label"><t>执行反馈:</t></label></td>
+            <td colspan="3">
+                <textarea class="form-control input-sm" id="query_return_data" rows="7"></textarea>
+            </td>
+        </tr>
+        <tr>
+        	<td>&nbsp;</td>
+        	<td colspan="3" class="text-danger" id="description"></td>
+        </tr>
+        <!-- 
+        <tr>
+            <td><label class="form-label"><t>开始时间:</t></label></td>
+            <td><span class="form-label-value" id="ctime"></span></td>
+            <td><label class="form-label"><t>结束时间:</t></label></td>
+            <td><span class="form-label-value" id="mtime"></span></td>
+        </tr>
+        -->
+    </table>
+    </form>
+    <!-- ================== 页面底部  ================== -->
+    <script type="text/javascript">
+        let g_stop_type = -1;
+        let g_task_id = -1;
+        let g_oss_url = ''
+        window.stop_manager_job = function () {
+            if (g_stop_type === -1) {
+                console.log('未知的stop_type', g_stop_type)
+            }
+            var url = page_setting['site_url'] + '/instance/conf/operate/stop_manager_job?type=' + g_stop_type + '&taskid=' + g_task_id + '&oss_url=' + oss_url;
+            $.window(url, function (result) {
+                if (result) {
+                    $('#stop_manager_job_bt').attr('disabled', 'disabled');
+                }
+            });
+        }
+
+    var actioxm ='<?php echo $actionxm;?>';
+    var taskid  ='<?php echo $taskid?>';
+    var oss_url ='<?php echo $oss_url?>';
+    var interface_name = '<?php echo $interface_name?>';
+    (function reload_taskstatus(){
+        var url = page_setting['ctrl_url']+'/get?oss_url='+escape(oss_url);
+        var arg = {"actionxm":actioxm,"taskid":taskid,"interface_name":interface_name};
+        $.post(url,arg,function(result){
+            if(result['success']==false){
+            	$('#status').html('<label class="label label-danger">'+t('任务失败')+'</label>');
+            	$('#description').html(result['data']);
+            	return;
+            }
+            var data = result['data'];
+            var fields=["objectid","interface_name","description"];
+            for(var x in fields){
+                $('#'+fields[x]).html(data[fields[x]]);
+            }
+            //$('#para').html(data['para']);
+            $('#query_return_data').val(JSON.stringify(data));
+            
+            $('#process').css("width",data['process']+'%');
+            $('#process .sr-only').text(data['process']+'%');
+            switch (data['status']) {
+                case 0:
+                    $('#status').html('<label class="label label-info">' + t('已完成') + '</label>');
+                    document.getElementById('stop_manager_job_bt').style.display = 'none';
+                    break;
+                case 1:
+                    $('#status').html('<label class="label label-danger">' + t('任务失败') + '</label>');
+                    document.getElementById('stop_manager_job_bt').style.display = 'none';
+                    break;
+                default:
+                    $('#status').html('<label class="label label-warning">' + t('进行中') + '(' + data['status'] + ')</label>');
+                    //终止逻辑
+                    document.getElementById('stop_manager_job_bt').style.display = 'block';
+                    // 获取当前接口
+                    let api_name = result['extend']['interface_name']
+                    if (api_name === 'QueryAddGWInsance') {
+                        g_stop_type = 14
+                    } else if (api_name === 'QueryInitInstance') {
+                        g_stop_type = 1
+                    }
+                    g_task_id = result['data']['taskid']
+                    break;
+            }
+            if(data['status']>1){
+                setTimeout(reload_taskstatus,3000);
+            }
+        },'json');
+    })();
+    </script>
+</body>
+</html>

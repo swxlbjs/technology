@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>关键字 - 知识就是力量</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">导语</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 系统底座</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../system_base/linux/index.html"><strong aria-hidden="true">1.1.</strong> linux</a></li><li class="chapter-item expanded "><a href="../../system_base/kubernetes/index.html"><strong aria-hidden="true">1.2.</strong> kubernetes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../system_base/kubernetes/kubernetes_component.html"><strong aria-hidden="true">1.2.1.</strong> kubernetes组件</a></li><li class="chapter-item "><a href="../../system_base/kubernetes/kubernetes_resource_object.html"><strong aria-hidden="true">1.2.2.</strong> kubernetes资源对象</a></li><li class="chapter-item "><a href="../../system_base/kubernetes/tcs.html"><strong aria-hidden="true">1.2.3.</strong> tcs</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 算法协议</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../algorithm_protocols/algorithm/index.html"><strong aria-hidden="true">2.1.</strong> 算法</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../algorithm_protocols/algorithm/hash.html"><strong aria-hidden="true">2.1.1.</strong> hash</a></li><li class="chapter-item "><a href="../../algorithm_protocols/algorithm/sort.html"><strong aria-hidden="true">2.1.2.</strong> sort</a></li></ol></li><li class="chapter-item expanded "><a href="../../algorithm_protocols/protocols/index.html"><strong aria-hidden="true">2.2.</strong> 协议</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../algorithm_protocols/protocols/grpc.html"><strong aria-hidden="true">2.2.1.</strong> grpc</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 编程语言</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> shell</div></li><li class="chapter-item expanded "><a href="../../programming_language/golang/index.html"><strong aria-hidden="true">3.2.</strong> golang</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../programming_language/golang/keyword.html" class="active"><strong aria-hidden="true">3.2.1.</strong> 关键字</a></li><li class="chapter-item "><a href="../../programming_language/golang/data_type.html"><strong aria-hidden="true">3.2.2.</strong> 数据类型</a></li><li class="chapter-item "><a href="../../programming_language/golang/source_module.html"><strong aria-hidden="true">3.2.3.</strong> 原生模块</a></li><li class="chapter-item "><a href="../../programming_language/golang/kubebuilder.html"><strong aria-hidden="true">3.2.4.</strong> kubebuilder</a></li><li class="chapter-item "><a href="../../programming_language/golang/kubernetes-csi.html"><strong aria-hidden="true">3.2.5.</strong> kubernetes-csi</a></li><li class="chapter-item "><a href="../../programming_language/golang/question/index.html"><strong aria-hidden="true">3.2.6.</strong> 问题</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../programming_language/golang/question/the_difference_between_array_and_list.html"><strong aria-hidden="true">3.2.6.1.</strong> 数组和列表的区别</a></li></ol></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 服务组件</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../server_component/activemq/index.html"><strong aria-hidden="true">4.1.</strong> activemq</a></li><li class="chapter-item expanded "><a href="../../server_component/ceph/index.html"><strong aria-hidden="true">4.2.</strong> ceph</a></li><li class="chapter-item expanded "><a href="../../server_component/etcd/index.html"><strong aria-hidden="true">4.3.</strong> etcd</a></li><li class="chapter-item expanded "><a href="../../server_component/kafka/index.html"><strong aria-hidden="true">4.4.</strong> kafka</a></li><li class="chapter-item expanded "><a href="../../server_component/mongo/index.html"><strong aria-hidden="true">4.5.</strong> mongo</a></li><li class="chapter-item expanded "><a href="../../server_component/mysql/index.html"><strong aria-hidden="true">4.6.</strong> mysql</a></li><li class="chapter-item expanded "><a href="../../server_component/rabbitmq/index.html"><strong aria-hidden="true">4.7.</strong> rabbitmq</a></li><li class="chapter-item expanded "><a href="../../server_component/redis/index.html"><strong aria-hidden="true">4.8.</strong> redis</a></li><li class="chapter-item expanded "><a href="../../server_component/tdsql/index.html"><strong aria-hidden="true">4.9.</strong> tdsql</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 提效工具</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../performance_tools/ansible/index.html"><strong aria-hidden="true">5.1.</strong> ansible</a></li><li class="chapter-item expanded "><a href="../../performance_tools/jenkins/index.html"><strong aria-hidden="true">5.2.</strong> jenkins</a></li><li class="chapter-item expanded "><a href="../../performance_tools/kustomize/index.html"><strong aria-hidden="true">5.3.</strong> kustomize</a></li><li class="chapter-item expanded "><a href="../../performance_tools/mdbook/index.html"><strong aria-hidden="true">5.4.</strong> mdbook</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 其他概念</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../conceptual_design/ci_cd/index.html"><strong aria-hidden="true">6.1.</strong> ci/cd</a></li><li class="chapter-item expanded "><a href="../../conceptual_design/ci_cd/index.html"><strong aria-hidden="true">6.2.</strong> ci/cd</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">知识就是力量</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="关键字"><a class="header" href="#关键字">关键字</a></h1>
+<h2 id="package"><a class="header" href="#package">package</a></h2>
+<p>package用于声明包的名称，需放在go文件所有代码的最前面。一个包由一个或多个go源文件组成，需放在同一个目录下，且同一个目录下的这些go文件的package的名字只能有一个</p>
+<h2 id="import"><a class="header" href="#import">import</a></h2>
+<p>用 import 关键字引入一个包，文件名不需要和包名一致</p>
+<h2 id="var"><a class="header" href="#var">var</a></h2>
+<p>使用var关键字是Go最基本的定义变量方式，有时也会使用到 := 来定义变量。</p>
+<h2 id="const"><a class="header" href="#const">const</a></h2>
+<p>const 用来声明一个常量，const 语句可以出现在任何 var 语句可以出现的地方，声明常量方式与 var 相同。const 声明的是常量，一旦创建，不可赋值修改。</p>
+<h2 id="func"><a class="header" href="#func">func</a></h2>
+<p>使用关键字 func 定义函数。其中，有返回值的函数，必须有明确的终止语句，否则会引发编译错误。函数是可变参的，变参的本质上是slice，只能有一个，且必须是最后一个。函数支持多返回值</p>
+<h2 id="type"><a class="header" href="#type">type</a></h2>
+<p>type是go语法里的重要而且常用的关键字，其主要作用就是用来定义类型。
+类型等价定义，相当于类型重命名
+定义接口</p>
+<h2 id="struct"><a class="header" href="#struct">struct</a></h2>
+<p>struct结构体是各个字段字段的类型的集合。是值类型，赋值和传参会赋值全部内容。</p>
+<h2 id="interface"><a class="header" href="#interface">interface</a></h2>
+<p>interface
+用于定义接口。一个接口是一个方法集，如果一个类型实现了一个接口中的所有方法集，那么说明该类型实现此接口。接口类型变量可以存储任何实现了该接口的类型的值。特别的，interface{}表示空接口类型，默认地，所有类型均实现了空接口，所以interface{}可以接收任意类型值。</p>
+<h2 id="map"><a class="header" href="#map">map</a></h2>
+<p>map 用于声明映射变量。映射属容器类类型，是一个同种类型元素的无序组，通过唯一的键可以获取对应的值。可以使用 make 创建 map 变量，未初始化的映射值为 nil。创建map变量主要有如下几种方式：
+//创建0容量的map
+var map1 = make(map[T1] T2)
+//创建指定容量的map，只是初始容量，会自动扩容
+var map2 = make(map[T]T2, 10)
+//创建并初始化map</p>
+<pre><code>var map3 = map[string]int {
+&quot;k1&quot; : 1,
+&quot;k2&quot; : 2,
+}
+// 创建可以放任意值的map
+var map4 = make(map[string]interface{})
+</code></pre>
+<h2 id="chan"><a class="header" href="#chan">chan</a></h2>
+<p>chan用于声明channel（信道）。信道提供一种机制使两个并发执行的函数实现同步，并通过传递具体元素类型的值来通信。未初始化的信道值为 nil。</p>
+<h2 id="go"><a class="header" href="#go">go</a></h2>
+<p>go用于创建Go线程（goroutine），实现并发编程。Go程是与其它Go程并发运行在同一地址空间的函数，相比于线程与进程，它是轻量级的。Go程在多线程操作系统上可实现多路复用，因此若一个线程阻塞，比如说等待I/O，那么其它的线程就会运行。Go程的设计隐藏了线程创建和管理的诸多复杂性。
+在函数或方法前添加 go 关键字能够在新的Go程中调用它。当调用完成后，该Go程也会安静地退出。效果有点像Unix Shell中的 &amp; 符号，它能让命令在后台运行。</p>
+<h2 id="select"><a class="header" href="#select">select</a></h2>
+<p>select 是 Go 中的一个控制结构，类似于用于通信的 switch 语句。每个 case 必须是一个通信操作，要么是发送要么是接收。select 随机执行一个可运行的 case。如果没有 case 可运行，它将阻塞，直到有 case
+可运行。</p>
+<h2 id="for"><a class="header" href="#for">for</a></h2>
+<p>for是Go中唯一用于循环结构的关键词。有三个使用方式，分别是单个循环条件，经典的初始化/条件/后续形式，还有和range关键词结合使用来遍历容器类对象（数组、切片、映射）。</p>
+<h2 id="range"><a class="header" href="#range">range</a></h2>
+<p>同 for 一起使用，遍历对象</p>
+<h2 id="break"><a class="header" href="#break">break</a></h2>
+<p>break用于终止最内层的&quot;for&quot;、“switch&quot;或&quot;select&quot;语句的执行。</p>
+<h2 id="continue"><a class="header" href="#continue">continue</a></h2>
+<p>结合for一起使用，continue通常用于结束当前循环</p>
+<h2 id="if"><a class="header" href="#if">if</a></h2>
+<p>条件判断语句</p>
+<h2 id="else"><a class="header" href="#else">else</a></h2>
+<p>可省略条件表达式的括号；
+支持初始化语句，可定义代码块局部变量；
+if与else块中只有一条语句也需要添加大括号；
+起始大括号必须与if与else同行。</p>
+<h2 id="switch"><a class="header" href="#switch">switch</a></h2>
+<p>switch语句提供多路执行</p>
+<h2 id="case"><a class="header" href="#case">case</a></h2>
+<p>case是switch和select分支条件</p>
+<h2 id="default"><a class="header" href="#default">default</a></h2>
+<p>所有的case分支都不满足时执行default分支</p>
+<h2 id="fallthrough"><a class="header" href="#fallthrough">fallthrough</a></h2>
+<p>使用fallthrough可以继续执行后面的case与default子句。</p>
+<h2 id="defer"><a class="header" href="#defer">defer</a></h2>
+<p>defer语句用于预设一个函数调用，即推迟函数的执行。 该函数会在执行 defer 的函数返回之前立即执行。它显得非比寻常， 但却是处理一些事情的有效方式，例如无论以何种路径返回，都必须释放资源的函数。
+典型的例子就是解锁互斥和关闭文件。如果有多个defer 按照倒序执行。</p>
+<h2 id="goto"><a class="header" href="#goto">goto</a></h2>
+<p>goto用于将程序的执行转移到与其标签相应的语句。可以使用goto退出多层&quot;for&quot;、“switch&quot;或&quot;select”，功能类似于break携带标签。</p>
+<h2 id="return"><a class="header" href="#return">return</a></h2>
+<p>return用于函数执行的终止并可选地提供一个或多个返回值。 任何在函数F中被推迟的函数会在F 返回给其调用者前执行。函数可以通过return返回多个值。如果返回值在函数返回形参中指定了名字，那么return时可不带返回值列表。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../programming_language/golang/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../programming_language/golang/data_type.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../programming_language/golang/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../programming_language/golang/data_type.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://0.0.0.0:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+
+</html>
