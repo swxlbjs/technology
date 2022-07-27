@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>kubernetes组件 - 知识就是力量</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">导语</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 系统底座</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../system_base/linux/index.html"><strong aria-hidden="true">1.1.</strong> linux</a></li><li class="chapter-item expanded "><a href="../../system_base/kubernetes/index.html"><strong aria-hidden="true">1.2.</strong> kubernetes</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../system_base/kubernetes/kubernetes_component.html" class="active"><strong aria-hidden="true">1.2.1.</strong> kubernetes组件</a></li><li class="chapter-item "><a href="../../system_base/kubernetes/kubernetes_resource_object.html"><strong aria-hidden="true">1.2.2.</strong> kubernetes资源对象</a></li><li class="chapter-item "><a href="../../system_base/kubernetes/tcs.html"><strong aria-hidden="true">1.2.3.</strong> tcs</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 算法协议</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../algorithm_protocols/algorithm/index.html"><strong aria-hidden="true">2.1.</strong> 算法</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../algorithm_protocols/algorithm/hash.html"><strong aria-hidden="true">2.1.1.</strong> hash</a></li><li class="chapter-item "><a href="../../algorithm_protocols/algorithm/sort.html"><strong aria-hidden="true">2.1.2.</strong> sort</a></li></ol></li><li class="chapter-item expanded "><a href="../../algorithm_protocols/protocols/index.html"><strong aria-hidden="true">2.2.</strong> 协议</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../algorithm_protocols/protocols/grpc.html"><strong aria-hidden="true">2.2.1.</strong> grpc</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 编程语言</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> shell</div></li><li class="chapter-item expanded "><a href="../../programming_language/golang/index.html"><strong aria-hidden="true">3.2.</strong> golang</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../programming_language/golang/keyword.html"><strong aria-hidden="true">3.2.1.</strong> 关键字</a></li><li class="chapter-item "><a href="../../programming_language/golang/data_type.html"><strong aria-hidden="true">3.2.2.</strong> 数据类型</a></li><li class="chapter-item "><a href="../../programming_language/golang/source_module.html"><strong aria-hidden="true">3.2.3.</strong> 原生模块</a></li><li class="chapter-item "><a href="../../programming_language/golang/kubebuilder.html"><strong aria-hidden="true">3.2.4.</strong> kubebuilder</a></li><li class="chapter-item "><a href="../../programming_language/golang/kubernetes-csi.html"><strong aria-hidden="true">3.2.5.</strong> kubernetes-csi</a></li><li class="chapter-item "><a href="../../programming_language/golang/question/index.html"><strong aria-hidden="true">3.2.6.</strong> 问题</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../programming_language/golang/question/the_difference_between_array_and_list.html"><strong aria-hidden="true">3.2.6.1.</strong> 数组和列表的区别</a></li></ol></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 服务组件</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../server_component/activemq/index.html"><strong aria-hidden="true">4.1.</strong> activemq</a></li><li class="chapter-item expanded "><a href="../../server_component/ceph/index.html"><strong aria-hidden="true">4.2.</strong> ceph</a></li><li class="chapter-item expanded "><a href="../../server_component/etcd/index.html"><strong aria-hidden="true">4.3.</strong> etcd</a></li><li class="chapter-item expanded "><a href="../../server_component/kafka/index.html"><strong aria-hidden="true">4.4.</strong> kafka</a></li><li class="chapter-item expanded "><a href="../../server_component/mongo/index.html"><strong aria-hidden="true">4.5.</strong> mongo</a></li><li class="chapter-item expanded "><a href="../../server_component/mysql/index.html"><strong aria-hidden="true">4.6.</strong> mysql</a></li><li class="chapter-item expanded "><a href="../../server_component/rabbitmq/index.html"><strong aria-hidden="true">4.7.</strong> rabbitmq</a></li><li class="chapter-item expanded "><a href="../../server_component/redis/index.html"><strong aria-hidden="true">4.8.</strong> redis</a></li><li class="chapter-item expanded "><a href="../../server_component/tdsql/index.html"><strong aria-hidden="true">4.9.</strong> tdsql</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 提效工具</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../performance_tools/ansible/index.html"><strong aria-hidden="true">5.1.</strong> ansible</a></li><li class="chapter-item expanded "><a href="../../performance_tools/jenkins/index.html"><strong aria-hidden="true">5.2.</strong> jenkins</a></li><li class="chapter-item expanded "><a href="../../performance_tools/kustomize/index.html"><strong aria-hidden="true">5.3.</strong> kustomize</a></li><li class="chapter-item expanded "><a href="../../performance_tools/mdbook/index.html"><strong aria-hidden="true">5.4.</strong> mdbook</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 其他概念</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../conceptual_design/ci_cd/index.html"><strong aria-hidden="true">6.1.</strong> ci/cd</a></li><li class="chapter-item expanded "><a href="../../conceptual_design/ci_cd/index.html"><strong aria-hidden="true">6.2.</strong> ci/cd</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">知识就是力量</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="kubernetes组件"><a class="header" href="#kubernetes组件">kubernetes组件</a></h1>
+<h2 id="kube-apiserver"><a class="header" href="#kube-apiserver">kube-apiserver</a></h2>
+<p>API 服务器是 Kubernetes 控制平面的组件， 该组件负责公开了 Kubernetes API，负责处理接受请求的工作。 API 服务器是 Kubernetes 控制平面的前端。</p>
+<p>Kubernetes API 服务器的主要实现是 kube-apiserver。 kube-apiserver 设计上考虑了水平扩缩，也就是说，它可通过部署多个实例来进行扩缩。 你可以运行 kube-apiserver 的多个实例，并在这些实例之间平衡流量。</p>
+<h2 id="etcd"><a class="header" href="#etcd">etcd</a></h2>
+<p>etcd 是兼顾一致性与高可用性的键值数据库，可以作为保存 Kubernetes 所有集群数据的后台数据库。</p>
+<p>你的 Kubernetes 集群的 etcd 数据库通常需要有个备份计划。</p>
+<h2 id="kube-scheduler"><a class="header" href="#kube-scheduler">kube-scheduler</a></h2>
+<p>kube-scheduler 是控制平面的组件， 负责监视新创建的、未指定运行节点（node）的 Pods， 并选择节点来让 Pod 在上面运行。</p>
+<p>调度决策考虑的因素包括单个 Pod 及 Pods 集合的资源需求、软硬件及策略约束、 亲和性及反亲和性规范、数据位置、工作负载间的干扰及最后时限。</p>
+<h2 id="kube-controller-manager"><a class="header" href="#kube-controller-manager">kube-controller-manager</a></h2>
+<p>kube-controller-manager 是控制平面的组件， 负责运行控制器进程。</p>
+<p>从逻辑上讲， 每个控制器都是一个单独的进程， 但是为了降低复杂性，它们都被编译到同一个可执行文件，并在同一个进程中运行。</p>
+<p>这些控制器包括：</p>
+<ul>
+<li>节点控制器（Node Controller）：负责在节点出现故障时进行通知和响应</li>
+<li>任务控制器（Job Controller）：监测代表一次性任务的 Job 对象，然后创建 Pods 来运行这些任务直至完成</li>
+<li>端点控制器（Endpoints Controller）：填充端点（Endpoints）对象（即加入 Service 与 Pod）</li>
+<li>服务帐户和令牌控制器（Service Account &amp; Token Controllers）：为新的命名空间创建默认帐户和 API 访问令牌</li>
+</ul>
+<h2 id="cloud-controller-manager"><a class="header" href="#cloud-controller-manager">cloud-controller-manager</a></h2>
+<p>cloud-controller-manager 是指嵌入特定云的控制逻辑之 控制平面组件。 cloud-controller-manager 允许你将你的集群连接到云提供商的 API 之上， 并将与该云平台交互的组件同与你的集群交互的组件分离开来。</p>
+<p>cloud-controller-manager 仅运行特定于云平台的控制器。 因此如果你在自己的环境中运行 Kubernetes，或者在本地计算机中运行学习环境， 所部署的集群不需要有云控制器管理器。</p>
+<p>与 kube-controller-manager 类似，cloud-controller-manager 将若干逻辑上独立的控制回路组合到同一个可执行文件中， 供你以同一进程的方式运行。</p>
+<p>你可以对其执行水平扩容（运行不止一个副本）以提升性能或者增强容错能力。</p>
+<p>下面的控制器都包含对云平台驱动的依赖：</p>
+<ul>
+<li>节点控制器（Node Controller）：用于在节点终止响应后检查云提供商以确定节点是否已被删除</li>
+<li>路由控制器（Route Controller）：用于在底层云基础架构中设置路由</li>
+<li>服务控制器（Service Controller）：用于创建、更新和删除云提供商负载均衡器</li>
+</ul>
+<h2 id="kubelet"><a class="header" href="#kubelet">kubelet</a></h2>
+<p>kubelet 会在集群中每个节点（node）上运行。 它保证容器（containers）都运行在 Pod 中。</p>
+<p>kubelet 接收一组通过各类机制提供给它的 PodSpecs， 确保这些 PodSpecs 中描述的容器处于运行状态且健康。 kubelet 不会管理不是由 Kubernetes 创建的容器。</p>
+<h2 id="kube-proxy"><a class="header" href="#kube-proxy">kube-proxy</a></h2>
+<p>kube-proxy 是集群中每个节点（node）所上运行的网络代理， 实现 Kubernetes 服务（Service） 概念的一部分。</p>
+<p>kube-proxy 维护节点上的一些网络规则， 这些网络规则会允许从集群内部或外部的网络会话与 Pod 进行网络通信。</p>
+<p>如果操作系统提供了可用的数据包过滤层，则 kube-proxy 会通过它来实现网络规则。 否则，kube-proxy 仅做流量转发。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../system_base/kubernetes/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../system_base/kubernetes/kubernetes_resource_object.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../system_base/kubernetes/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../system_base/kubernetes/kubernetes_resource_object.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://0.0.0.0:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+
+</html>

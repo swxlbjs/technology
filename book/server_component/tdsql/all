@@ -1,0 +1,57 @@
+---
+# scheduler,oss机器网卡
+tdsql_sche_netif: eth0
+
+# 操作系统账号tdsql的明文密码
+# 如果有规划要部署两个集群做DCN同步, 则这两个集群的tdsql密码要一致
+tdsql_os_pass: a+complex+password
+
+# tdsql在zk上的根路径, 保持默认不允许修改
+tdsql_zk_rootdir: /tdsqlzk
+
+# zk机器的域名配置, 会写入各配置文件, 并将域名配置到/etc/hosts中
+# 正式环境必须用机房或者地区的关键字, 有意义的关键字来命名
+# 如果部署多套TDSQL集群, 则名字需要唯一
+# 例如: 深圳机房zk的域名可以定义为tdsql_sz_zk
+tdsql_zk_domain_name: tdsql_test_zk
+
+# zk端口配置, 保持默认不要改,如果是自建的zk, 则和已有zk端口保持一致
+tdsql_zk_clientport: 2118
+tdsql_zk_serverport1: 2338
+tdsql_zk_serverport2: 2558
+
+
+# 赤兔监控库配置, 赤兔初始化完成后需要将监控库信息在这里更新
+tdsql_metadb_ip: 172.16.14.124
+tdsql_metadb_port: 15001
+tdsql_metadb_ip_bak: 172.16.14.230
+tdsql_metadb_port_bak: 15001
+tdsql_metadb_user: hanlon
+tdsql_metadb_password: 123456
+
+
+# hdfs机器的ssh端口
+tdsql_hdfs_ssh: 22
+
+# hdfs数据目录, 正式环境要求mount挂载比较大的数据盘
+tdsql_hdfs_datadir: /data2/hdfs,/data3/hdfs,/data4/hdfs
+
+
+# kafka日志目录，正式环境要求mount挂载比较大的数据盘
+tdsql_kafka_logdir: /data2/kafka,/data3/kafka,/data4/kafka
+
+# 多源同步消费服务的机器网卡
+tdsql_consumer_netif: eth0
+
+
+# es7配置
+tdsql_es7_mem: 4
+tdsql_es7_base_path: /data1/es
+tdsql_helper_cluster_name: tdsql
+
+
+# 一致性读MC机器的网卡, 需要安装MC时配置
+tdsql_mc_netif: eth0
+
+
+update_tdsqlinstall_packet: mysqlagent
