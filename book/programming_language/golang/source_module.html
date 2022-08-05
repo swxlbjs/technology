@@ -168,7 +168,43 @@
 <h2 id="sort"><a class="header" href="#sort">sort</a></h2>
 <ul>
 <li>Strings(x []string) { Sort(StringSlice(x)) }:字符串排序，从第一位开始比对，a-z,0-9</li>
+<li>Sort(data Interface): 自定义排序，data需要满足三个方法
+<ul>
+<li>Len() int: 计数，统计有多少个</li>
+<li>Less(i, j int) bool: 是否交换，判断i和j是否交换</li>
+<li>Swap(i, j int): 交换，将i和j重新赋值</li>
+<li>示例(降序，结果为&quot;[1 5 6 13]&quot;):</li>
 </ul>
+</li>
+</ul>
+<pre><code class="language-go">package main
+
+import (
+  &quot;fmt&quot;
+  &quot;sort&quot;
+)
+
+//sortTMP 
+type sortTMP []int
+
+func (s sortTMP) Len() int {
+  return len(s)
+}
+
+func (s sortTMP) Less(i, j int) bool {
+  return s[i] &lt; s[j]
+}
+
+func (s sortTMP) Swap(i, j int) {
+  s[i], s[j] = s[j], s[i]
+}
+
+func main() {
+  x := []int{1, 13, 6, 5}
+  sort.Sort(sortTMP(x))
+  fmt.Println(x)
+}
+</code></pre>
 
                     </main>
                     <nav class="nav-wrapper" aria-label="Page navigation">
@@ -198,7 +234,7 @@
 
         <!-- Livereload script (if served using the cli tool) -->
         <script type="text/javascript">
-            var socket = new WebSocket("ws://0.0.0.0:3000/__livereload");
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
             socket.onmessage = function (event) {
                 if (event.data === "reload") {
                     socket.close();

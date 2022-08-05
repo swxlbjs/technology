@@ -179,7 +179,7 @@ pause 容器，若相同，则不做处理。若容器被终止了，且容器�
 
         <!-- Livereload script (if served using the cli tool) -->
         <script type="text/javascript">
-            var socket = new WebSocket("ws://0.0.0.0:3000/__livereload");
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
             socket.onmessage = function (event) {
                 if (event.data === "reload") {
                     socket.close();

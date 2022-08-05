@@ -262,6 +262,42 @@ pause 容器，若相同，则不做处理。若容器被终止了，且容器�
 <li>第二轮比较后，所有数中第二大的那个数就会浮到倒数第二个位置</li>
 <li>就这样一轮一轮地比较，最后实现从小到大排序。</li>
 </ul>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+// BubbleSort 冒泡排序
+func BubbleSort(list []int) {
+	// 每一次比对将得到除已经排序之外的最大值
+	// 每一次都从第一位开始循环比对
+	for i := range list {
+		// nowI 当前位置下标
+		nowI := 0
+		// 开始交换位置
+		for {
+			// 下标到指定位置后，停止排序
+			if nowI == len(list)-i-1 {
+				break
+			}
+			// 比对，如果比右边大，交换位置
+			if list[nowI] &gt; list[nowI+1] {
+				list[nowI], list[nowI+1] = list[nowI+1], list[nowI]
+			}
+			// 位置下标变化
+			nowI++
+
+		}
+	}
+}
+
+func main() {
+	list := []int{9, 4, 6, 78, 3, 1, 5, 5, 7, 9, 0, 24, 234, 8}
+	BubbleSort(list)
+	fmt.Println(list)
+}
+
+//执行结果: [0 1 3 4 5 5 6 7 8 9 9 24 78 234]
+</code></pre>
 <h2 id="桶排序"><a class="header" href="#桶排序">桶排序</a></h2>
 <p>分成若干个桶</p>
 <ul>
@@ -309,21 +345,56 @@ list[right] = tmp
 }
 </code></pre>
 <h2 id="插入排序"><a class="header" href="#插入排序">插入排序</a></h2>
-<pre><code>func Sort(list []int, left, right int)  {
-for index := left;index &lt;= right;index++ {
-if index &gt; 0 {
-for i:=index;i&gt;0;i-- {
-current := list[i]
-pre := list[i-1]
-if current &lt;= pre {
-utils.SwapGo(list, i, i-1)
-} else {
-break
+<p>n-1(其中 n&gt;=2)个数已经是排好顺序的，现将第 n 个数插到前面已经排好的序列中，然后找到合适自己的位置，使得插入第n个数的这个序列也是排好顺序的 。按照此法对所有元素进行插入，直到整个序列排为有序的过程，称为插入排序。</p>
+<ul>
+<li>交换规则: 左右比较，如右比左小，交换位置，反之则不交换</li>
+<li>交换步骤:
+<ul>
+<li>第一轮，从第二位和第一位比较</li>
+<li>第二轮，从第三位和第二位比较，如交换位置，依次往前比较，直至不交换位置</li>
+<li>第三轮，从第四位和第三位比较，如交换位置，依次往前比较，直至不交换位置</li>
+<li>第n轮，....</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+// InsertSort 插入排序
+func InsertSort(list []int) {
+	for i := range list {
+		// 跳过第一个值，从第二个值开始比对
+		if i == 0 {
+			continue
+		}
+		// nowI 当前位置下标
+		nowI := i
+		// 开始交换位置
+		for {
+			// 当前位置处于第一位时，不再比对
+			if nowI == 0 {
+				break
+			}
+			// 比对，如右比左小，交换位置
+			if list[nowI] &lt; list[nowI-1] {
+				list[nowI], list[nowI-1] = list[nowI-1], list[nowI]
+				// 位置下标变化，重新比较比对
+				nowI--
+				continue
+			}
+			break
+		}
+	}
 }
+
+func main() {
+	list := []int{9, 4, 6, 78, 3, 1, 5, 5}
+	InsertSort(list)
+	fmt.Println(list)
 }
-}
-}
-}
+
+// 执行结果: [1 3 4 5 5 6 9 78]
 </code></pre>
 <h2 id="合并排序"><a class="header" href="#合并排序">合并排序</a></h2>
 <pre><code>func Sort(list []int, left, right int) []int{
@@ -919,7 +990,43 @@ for _, k := range keys {
 <h2 id="sort"><a class="header" href="#sort">sort</a></h2>
 <ul>
 <li>Strings(x []string) { Sort(StringSlice(x)) }:字符串排序，从第一位开始比对，a-z,0-9</li>
+<li>Sort(data Interface): 自定义排序，data需要满足三个方法
+<ul>
+<li>Len() int: 计数，统计有多少个</li>
+<li>Less(i, j int) bool: 是否交换，判断i和j是否交换</li>
+<li>Swap(i, j int): 交换，将i和j重新赋值</li>
+<li>示例(降序，结果为&quot;[1 5 6 13]&quot;):</li>
 </ul>
+</li>
+</ul>
+<pre><code class="language-go">package main
+
+import (
+  &quot;fmt&quot;
+  &quot;sort&quot;
+)
+
+//sortTMP 
+type sortTMP []int
+
+func (s sortTMP) Len() int {
+  return len(s)
+}
+
+func (s sortTMP) Less(i, j int) bool {
+  return s[i] &lt; s[j]
+}
+
+func (s sortTMP) Swap(i, j int) {
+  s[i], s[j] = s[j], s[i]
+}
+
+func main() {
+  x := []int{1, 13, 6, 5}
+  sort.Sort(sortTMP(x))
+  fmt.Println(x)
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="kubebuilder"><a class="header" href="#kubebuilder">kubebuilder</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="kubernetes-csi"><a class="header" href="#kubernetes-csi">kubernetes-csi</a></h1>
 <h2 id="参考资料"><a class="header" href="#参考资料">参考资料</a></h2>
@@ -1061,7 +1168,7 @@ ceph osd pool get bigstorage pgp_num
 
         <!-- Livereload script (if served using the cli tool) -->
         <script type="text/javascript">
-            var socket = new WebSocket("ws://0.0.0.0:3000/__livereload");
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
             socket.onmessage = function (event) {
                 if (event.data === "reload") {
                     socket.close();
